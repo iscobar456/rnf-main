@@ -1,6 +1,6 @@
 import styles from './posts.module.css'
 import Image from 'next/image'
-import { Post, Media, PostCategory } from '../payload-types'
+import { Post, Media, PostCategory } from '../payload-exports/types'
 import Link from 'next/link'
 
 export interface DeepPost extends Omit<Post, 'category' | 'featuredImage' | 'datePublished'> {

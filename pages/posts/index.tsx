@@ -1,7 +1,7 @@
 import { DeepPost, PostList, PostCardProps } from '../../components/posts'
 import styles from './page.module.css'
 import Link from 'next/link'
-import { Media } from '../../payload-types'
+import { Media } from '../../payload-exports/types'
 import RootLayout from '../layout'
 import path from 'path'
 import { promises as fs } from 'fs'
@@ -32,7 +32,7 @@ function FeaturedSection({ urlSlug, featuredImage, excerpt, title }: FeaturedSec
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'data/index_props.json')
+  const filePath = path.join(process.cwd(), 'payload-exports/posts.json')
   const fileData = await fs.readFile(filePath, 'utf8')
   const posts = JSON.parse(fileData).docs as DeepPost[]
 

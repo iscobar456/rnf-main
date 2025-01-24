@@ -30,7 +30,7 @@ interface SocialIconsProps {
 }
 
 export const getStaticProps = async ({ params }: PostStaticPropsContext) => {
-  const filePath = path.join(process.cwd(), 'data/index_props.json')
+  const filePath = path.join(process.cwd(), 'payload-exports/posts.json')
   const fileData = await fs.readFile(filePath, 'utf8')
   const posts = JSON.parse(fileData).docs
   const post = posts.find((post: DeepPost) => (post.urlSlug == params.slug))
@@ -44,7 +44,7 @@ export const getStaticProps = async ({ params }: PostStaticPropsContext) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filePath = path.join(process.cwd(), 'data/index_props.json')
+  const filePath = path.join(process.cwd(), 'payload-exports/posts.json')
   const fileData = await fs.readFile(filePath, 'utf8')
   const posts = JSON.parse(fileData)
 

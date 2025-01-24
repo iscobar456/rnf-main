@@ -9,7 +9,7 @@ import { promises as fs } from 'fs'
 import path from 'path'
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'data/index_props.json')
+  const filePath = path.join(process.cwd(), 'payload-exports/posts.json')
   const fileData = await fs.readFile(filePath, 'utf8')
   const propsData = JSON.parse(fileData).docs.slice(0, 4)
 
